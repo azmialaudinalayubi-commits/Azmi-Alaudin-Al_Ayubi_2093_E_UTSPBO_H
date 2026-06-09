@@ -1,70 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System;
 
 namespace Azmi_Alaudin_Al_Ayubi_2093_E_UTSPBO_H
 {
-    public class Reservasi_kamar
+    public abstract class Reservasikamar
     {
         private string namatamu;
         private string idBooking;
-        private string TipeKamar;
-        protected int tanggalChekin;
+        private string tipeKamar;
 
-        public string Tipekamar { get; private set; }    
-    )
-    public Reservasi_kamar(string namatamu, string idBooking, string tipeKamar,int tanggalChekin)
-    {
-            this.namatamu = namatamu;
-            this.idBooking = idBooking; 
-            this.TipeKamar = tipeKamar;
-            this.tanggalChekin = tanggalChekin;
-    }
-
-     protected Reservasi_kamar(string namatamu, int tanggalChekin)
+        public Reservasikamar(string namatamu, string idBooking, string tipeKamar)
         {
-            this.namatamu =namatamu; 
-            this.tanggalChekin=tanggalChekin;
+            this.namatamu = namatamu;
+            this.idBooking = idBooking;
+            this.tipeKamar = tipeKamar;
         }
-    
 
-    public string getnamatamu()
-    {
-            return namatamu;
+        public string NamaTamu
+        {
+            get { return namatamu; }
+            set { namatamu = value; }
+        }
+
+        public string IdBooking
+        {
+            get { return idBooking; }
+            set { idBooking = value; }
+        }
+
+        public string TipeKamar
+        {
+            get { return tipeKamar; }
+            set { tipeKamar = value; }
+        }
+
+        public void TampilInfo()
+        {
+            Console.WriteLine("Nama Tamu  : " + namatamu);
+            Console.WriteLine("ID Booking : " + idBooking);
+            Console.WriteLine("Tipe Kamar : " + tipeKamar);
+        }
+
+        public abstract double HitungTotalBilling();
     }
-
-    public override double setnamatamu(string namatamu)
-    {
-        this.namatamu =namatamu;
-    }
-
-    public string getidBooking (string idBooking)
-    {
-        return idBooking;
-    }
-
-    public override setidBooking (string idBooking)
-    {
-        this.idBooking= idBooking;
-    }
-
-    public string getTipekamar (string Tipekamar)
-    {
-            return Tipekamar;
-    }
-
-    public void settanggalChekin(int tanggalChekin)
-    {
-            this.tanggalChekin = tanggalChekin;
-    }
-
-
-    public void Tampilaninfo()
-    {
-            Console.WriteLine("Nama Tamu : namatamu");
-            Console.WriteLine("id Booking : idBooking");
-            Console.WriteLine("Tipe kamar : TipeKamar");
-            Console.WriteLine("Tanggal Chekin : TanggalChekin");
-    }
-    
 }
